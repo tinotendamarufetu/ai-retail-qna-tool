@@ -1,6 +1,3 @@
-Simply copy the Markdown block below and paste it directly into a file named README.md at the root of your GitHub repository.
-
-Markdown
 # 👕 T-Shirts Retail Store: Enterprise Database Q&A Tool
 
 An enterprise-grade, Natural Language to SQL (NL2SQL) system built with **Streamlit**, **LangChain**, **Groq LLM**, and **Microsoft SQL Server**. This application allows users to ask plain English questions about retail inventory, sales transactions, discounts, and revenue, and receive immediate, execution-verified answers directly from an enterprise relational database.

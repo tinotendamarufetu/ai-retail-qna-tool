@@ -10,6 +10,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
 from few_shots import few_shots
 
+
+# 1. Load environment variables
 load_dotenv()
 
 # Load Groq API Key

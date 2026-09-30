@@ -13,7 +13,8 @@ from few_shots import few_shots
 load_dotenv()
 
 # Load Groq API Key
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# Read from st.secrets on Streamlit Cloud, fallback to .env locally
+GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 
 # Initialize Database Connection
 DB_USER = os.getenv("DB_USER", "root")

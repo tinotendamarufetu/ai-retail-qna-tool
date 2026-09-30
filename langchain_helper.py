@@ -21,7 +21,12 @@ DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_NAME = os.getenv("DB_NAME", "retail_store_db")
 
-db_uri = f"mssql+pyodbc://@{DB_HOST}/{DB_NAME}?driver=ODBC+Driver+18+for+SQL+Server&trusted_connection=yes&TrustServerCertificate=yes"
+# Connection string for MS SQL Server (commented out)
+#db_uri = f"mssql+pyodbc://@{DB_HOST}/{DB_NAME}?driver=ODBC+Driver+18+for+SQL+Server&trusted_connection=yes&TrustServerCertificate=yes"
+#db = SQLDatabase.from_uri(db_uri)
+
+# Connect to local SQLite database file inside repository
+db_uri = "sqlite:///app.db"
 db = SQLDatabase.from_uri(db_uri)
 
 
@@ -79,7 +84,7 @@ def get_few_shot_db_chain():
     prompt_template = FewShotPromptTemplate(
         example_prompt=example_prompt,
         examples=[],  # Handled dynamically by vector store lookup
-        prefix="""You are a SQL Server expert. Given an input question, create a syntactically correct T-SQL query.
+        prefix="""You are a SQLite Server expert. Given an input question, create a syntactically correct SQLite query.
 
         Database Schema / Guidelines:
         - Table: sales

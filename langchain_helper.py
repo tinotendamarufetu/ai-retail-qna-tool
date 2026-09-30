@@ -66,6 +66,10 @@ def validate_sql_query(query: str) -> bool:
 
 @st.cache_resource
 def get_few_shot_db_chain():
+
+    # Fetch key inside function scope
+    GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+
     if not GROQ_API_KEY:
         st.error("❌ GROQ_API_KEY is missing from your .env file!")
 
